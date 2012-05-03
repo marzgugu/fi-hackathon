@@ -42,7 +42,7 @@ FGNewsHound.prototype.updateComments = function(clientId, clientTabId, body) {
 
 		if (smallestElement) {
 			smallestElement.addClass('nh-highlighted');
-			smallestElement.css({color: 'red'});
+			smallestElement.css({background: 'rgba(255,0,0,0.2)'});
 			if (!commentMap[smallestElement.text()]) {
 				commentMap[smallestElement.text()] = {
 					comments: []
