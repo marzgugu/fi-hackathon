@@ -74,11 +74,12 @@ FGNewsHound.prototype.addNewComment = function(clientId, clientTabId, body) {
 
 FGNewsHound.prototype.displayComment = function(element) {
 	console.log('should display comment.');
+	console.log(element);
 	console.log($(element).offset().top + $(element).height() + 10);
-	
+
 	var top = $(element).offset().top + $(element).height() + 10;
 	
-	$("#news-hound-thread").html('<div id="news-hound-thread" class="modal" style="position: absolute; top: '+top+'px; left: 36%;">\
+	$("#news-hound-thread").html('<div id="news-hound-thread" class="modal" style="position: absolute; top: '+top+'px; left: 36%; margin-top: 0;">\
   <div id="thread-header" class="modal-header">\
     <h3>Comment Thread</h3>\
   </div>\
