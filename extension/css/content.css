@@ -7,10 +7,19 @@
 #thread-header h3{
   font-weight: bold;
 }
+.modal-body{
+  padding: 0;
+}
 .comment{
+  border-bottom: lightgray 1px solid;
   float: left;
   margin-bottom: 10px;
-  width: 100%;
+  /*width: 100%;*/
+  padding: 3%;
+  width: 94%;
+}
+.comment:nth-child(odd){
+  background: #FAFAFA;
 }
 .comment .avatar{
   float: left;
