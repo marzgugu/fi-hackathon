@@ -1,0 +1,9 @@
+.download-section {
+	background-image: url(../images/download-extension.png);
+	background-repeat: no-repeat;
+	background-position: 131% -7%;
+}
+
+.download-section p {
+	width: 50%;
+}
