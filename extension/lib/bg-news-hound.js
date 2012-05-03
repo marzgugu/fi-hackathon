@@ -26,6 +26,23 @@ BGNewsHound.prototype.pollForNews = function(clientId, clientTabId, body) {
 	})
 };
 
+BGNewsHound.prototype.createComment = function(clientId, clientTabId, body) {
+	console.log(body);
+	/*
+	body: {
+		comment: $('.comment-text').val(),
+		email: $('.email').val(),
+		location: window.location.href,
+		text: $(this).data('text')
+	}*/
+	$.ajax({
+		type: 'get',
+		url: 'http://newshound.herokuapp.com/comment/add/' + encodeURIComponent(body.location) + '/' + encodeURIComponent(body.email) + '/' + encodeURIComponent(body.comment) + '/' + encodeURIComponent(body.text),
+		success: function(response) {
+		}
+	})
+};
+
 BGNewsHound.prototype.createContextMenu = function() {
 	var _this = this;
 	chrome.contextMenus.create({

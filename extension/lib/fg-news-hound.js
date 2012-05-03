@@ -68,30 +68,45 @@ FGNewsHound.prototype.attachEvents = function() {
 	});
 	
 	$('.btn-primary').live('click', function() {
-		console.log( $('.comment-text').val() );
-		$('#news-hound-thread').empty();
+		console.log( $(this).data('text'));
+		_this.client.sendMessage({
+			tabId: 'background',
+			to: 'background-client',
+			action: 'createComment',
+			body: {
+				comment: $('.comment-text').val(),
+				email: $('.email').val(),
+				location: window.location.href,
+				text: $(this).data('text')
+			}
+		});
 		return false;
 	});
 };
 
 FGNewsHound.prototype.addNewComment = function(clientId, clientTabId, body) {
-	/*var smallestElement = null,
-		smallestCount = 99999999;
+	var _this = this;
+	$('body').each(function(comment) {
+		var smallestElement = null,
+			smallestCount = 99999999;
 		
-	$('*').each(function() {
-		if ($(this).text().indexOf(body.selectionText) > -1) {
-			var html = $(this).html();
-			if (html.length < smallestCount) {
-				smallestCount = html.length;
-				smallestElement = $(this);
+		$('*').each(function() {
+			if ($(this).text().indexOf(comment.text) > -1) {
+				var html = $(this).html();
+				if (html.length < smallestCount) {
+					smallestCount = html.length;
+					smallestElement = $(this);
+				}
 			}
+		});
+
+		if (smallestElement) {
+			_this.displayComment(smallestElement);
+			setTimeout(function() {
+				$('.btn-primary').data('text', body.selectionText);
+			});
 		}
 	});
-	
-	if (smallestElement) {
-		smallestElement.addClass('nh-highlighted');
-		smallestElement.css({color: 'red'});
-	}*/
 };
 
 FGNewsHound.prototype.displayComment = function(element) {	
@@ -108,14 +123,17 @@ FGNewsHound.prototype.displayComment = function(element) {
   </div>\
   <form id="add-news-hound-comment" class="span6" action="#" method="post">\
     <textarea class="span6 comment-text" rows="4"></textarea>\
-    <input class="span4 left" type="text" placeholder="you@email.com">\
+    <input class="span4 left email" type="text" placeholder="you@email.com">\
     <button class="btn btn-primary span2 left" type="submit" value="Add Comment">Add Comment</button>\
   </form>\
 </div>');
 
+
 	if (element.data('comments') && element.data('comments').length) {
 		var comments = element.data('comments');
 		for (var i = 0, comment; (comment = comments[i]) != null; i++) {
+			$('.btn-primary').data('text', comment.text);
+
 			var c = $('<div class="comment"><img class="avatar" height="32" width="32" src="' + comment.user + '" /><span class="comment-content">' + comment.comment + '</span></div>')
 			$('#news-hound-thread .modal-body').append(c);
 		}
