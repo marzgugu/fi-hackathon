@@ -80,6 +80,7 @@ FGNewsHound.prototype.attachEvents = function() {
 				text: $(this).data('text')
 			}
 		});
+		$('#news-hound-thread').empty();
 		return false;
 	});
 };
