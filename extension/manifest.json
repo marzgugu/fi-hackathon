@@ -1,0 +1,32 @@
+{
+  "name": "NewsHound",
+  "version": "1.0.0",
+  "description": "Comment on arbitrary news articles.",
+  "background_page" : "background.html",
+  "page_action": {
+    "default_title": "ImageMaily"
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "permissions": [
+    "http://newshound.herokuapp.com/*",
+    "tabs",
+    "contextMenus",
+    "notifications"
+  ],
+  "content_scripts": [
+    {
+        "matches": ["http://*/*", "https://*/*"],
+        "js": [
+            "lib/jquery.js",
+            "lib/fg-news-hound.js",
+			"lib/queuebert.js"
+        ],
+        "css": ["css/content.css"],
+        "all_frames": false
+    }
+  ]
+}
