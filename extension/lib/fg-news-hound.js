@@ -73,7 +73,32 @@ FGNewsHound.prototype.addNewComment = function(clientId, clientTabId, body) {
 };
 
 FGNewsHound.prototype.displayComment = function(element) {
-	console.log('should display comment.')
+	console.log('should display comment.');
+	console.log($(element).offset().top);
+	
+	$("#news-hound-thread").html('<div id="news-hound-thread" class="modal" style="position: absolute; top: 1217px; left: 36%;">\
+  <div id="thread-header" class="modal-header">\
+    <h3>Comment Thread</h3>\
+  </div>\
+  <div class="modal-body">\
+    <div class="comment">\
+      <img class="avatar" height="32" width="32">\
+      <span class="comment-content">I love making comments!</span>\
+    </div>\
+    <div class="comment">\
+      <img class="avatar" height="32" width="32">\
+      <span class="comment-content">Your article is so awesome!!!</span>\
+  </div>\
+  </div>\
+  <div class="modal-header">\
+    <h3>Add Your Voice</h3>\
+  </div>\
+  <form id="add-news-hound-comment" class="span6" action="#" method="post">\
+    <textarea class="span6" rows="4"></textarea>\
+    <input class="span4 left" type="text" placeholder="you@email.com">\
+    <button class="btn btn-primary span2 left" type="submit" value="Add Comment">Add Comment</button>\
+  </form>\
+</div>');
 };
 
 $(document).ready(function() {
