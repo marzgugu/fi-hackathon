@@ -12,6 +12,15 @@
   margin-bottom: 10px;
   width: 100%;
 }
+.comment .avatar{
+  float: left;
+}
+.comment .comment-content{
+  display: block;
+  margin-left: 10px;
+  min-height: 32px;
+  float: left;
+}
 #add-news-hound-comment{
   margin: 14px;
   overflow: auto;
