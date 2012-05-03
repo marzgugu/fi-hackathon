@@ -3,6 +3,33 @@
 }
 #thread-header{
   border-radius: 6px 6px 0 0;
+  position: relative;
+}
+#thread-header:before{
+  border-top: 10px solid transparent;
+  border-left: 10px solid #FAFAFA;
+  border-right: 10px solid #FAFAFA;
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  margin-left: -5px;
+  width: 0;
+  height: 0;
+  z-index: 200;
+}
+#thread-header:after{
+  border-top: 10px solid transparent;
+  border-left: 10px solid gray;
+  border-right: 10px solid gray;
+  content: "";
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  margin-left: -5px;
+  width: 0;
+  height: 0;
+  z-index: 100;  
 }
 #thread-header h3{
   font-weight: bold;
