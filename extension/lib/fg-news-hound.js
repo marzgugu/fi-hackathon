@@ -7,9 +7,12 @@ function FGNewsHound() {
 }
 
 FGNewsHound.prototype.addNewComment = function(clientId, clientTabId, body) {
-	console.log( $('*:contains(' + body.selectionText + ')') );
+	//var element = $('*:contains(' + body.selectionText + ')').last().
+	//	html = 
 };
 
 $(document).ready(function() {
 	new FGNewsHound();
+	$('body').append( $('<div id="news-hound-thread" />') );
+	console.log($('#news-hound-thread'));
 });
