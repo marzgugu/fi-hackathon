@@ -8,6 +8,24 @@ function BGNewsHound(params) {
 	this.createContextMenu();
 }
 
+BGNewsHound.prototype.pollForNews = function(clientId, clientTabId, body) {
+	var _this = this;
+	
+	$.ajax({
+		url: 'http://newshound.herokuapp.com/get/comments/' + encodeURIComponent(body.location),
+		success: function(response) {
+			if (response.length) {
+				_this.client.sendMessage({
+					action: 'updateComments',
+					tabId: clientTabId,
+					to: 'client',
+					body: {comments: response}
+				});
+			}
+		}
+	})
+};
+
 BGNewsHound.prototype.createContextMenu = function() {
 	var _this = this;
 	chrome.contextMenus.create({
