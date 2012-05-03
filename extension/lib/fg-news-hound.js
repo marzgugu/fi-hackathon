@@ -42,7 +42,7 @@ FGNewsHound.prototype.updateComments = function(clientId, clientTabId, body) {
 
 		if (smallestElement) {
 			smallestElement.addClass('nh-highlighted');
-			smallestElement.css({color: 'red'});
+			smallestElement.css({background: 'rgba(255,0,0,0.2)'});
 			if (!commentMap[smallestElement.text()]) {
 				commentMap[smallestElement.text()] = {
 					comments: []
@@ -112,7 +112,7 @@ FGNewsHound.prototype.addNewComment = function(clientId, clientTabId, body) {
 FGNewsHound.prototype.displayComment = function(element) {	
 	var top = $(element).offset().top + $(element).height() + 10;
 	
-	$("#news-hound-thread").html('<div id="news-hound-thread" class="modal" style="position: absolute; top: '+top+'px; left: 36%;">\
+	$("#news-hound-thread").html('<div id="news-hound-thread" class="modal" style="position: absolute; top: '+top+'px; left: 36%; margin-top: 0;">\
   <div id="thread-header" class="modal-header">\
     <h3>Comment Thread</h3>\
   </div>\
