@@ -16,6 +16,10 @@
   margin: 14px;
   overflow: auto;
 }
+#add-news-hound-comment input[type="text"]{
+  float: left;
+  width: 290px;
+}
 #add-news-hound-comment button{
   width: 136px;
 }
