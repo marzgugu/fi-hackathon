@@ -1,9 +1,13 @@
 .download-section {
-	background-image: url(../images/download-extension.png);
+	background-image: url(http://connormcsheffrey.com/crap/download-extension.png);
 	background-repeat: no-repeat;
-	background-position: 131% -7%;
+	background-position: 155% -7%;
 }
 
 .download-section p {
-	width: 50%;
+	width: 55%;
+}
+
+.description {
+	margin-top: 40px;
 }
