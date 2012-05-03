@@ -23,9 +23,10 @@
         "js": [
             "lib/jquery.js",
             "lib/fg-news-hound.js",
+            "lib/bootstrap.min.js",            
 			"lib/queuebert.js"
         ],
-        "css": ["css/content.css"],
+        "css": ["css/content.css", "css/bootstrap.css"],
         "all_frames": false
     }
   ]
